@@ -1,0 +1,14 @@
+# Question: Get number of records by status (using orders data)
+# Order fields : order id,ordered date,order customer id, order status.
+
+def readData(path):
+    fileObj=open(path)
+    fileToStr=fileObj.read()
+    strToLis=fileToStr.splitlines()
+    return strToLis
+
+orders=readData("C:/Users/Ramesh/Desktop/retail_db-master/orders/part-00000")
+completeOrderStatuses = list()
+for order in orders:
+  completeOrderStatuses.append(order.split(",")[3])
+print (dict( (l, completeOrderStatuses.count(l) ) for l in set(completeOrderStatuses)))
