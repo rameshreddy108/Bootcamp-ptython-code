@@ -1,0 +1,11 @@
+def readData(path):
+    fileObj=open(path)
+    fileToStr=fileObj.read()
+    strToLis=fileToStr.splitlines()
+    return strToLis
+
+orders=readData("C:/Users/Ramesh/Desktop/retail_db-master/orders/part-00000")
+comMonPreInOrd = list()
+for order in orders:
+  comMonPreInOrd.append(order.split(",")[1][5:7])
+print (dict( (l, comMonPreInOrd.count(l) ) for l in set(comMonPreInOrd)))
