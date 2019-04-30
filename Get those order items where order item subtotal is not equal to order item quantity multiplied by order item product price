@@ -1,0 +1,14 @@
+# Question:Get those order items where order item subtotal is not equal to order item quantity multiplied by order item product price
+# Order fields :order item id,order item order id,order item product id,order item quantity,order item subtotal,order item product price
+
+ def readData(path):
+    readFile=open(path)
+    fileToStr=readFile.read()
+    strToLis=fileToStr.splitlines()
+    return strToLis
+
+orderitems=readData("C:/Users/Ramesh/Desktop/retail_db-master/order_items/part-00000")
+
+for orderitem in orderitems:
+    if(float(orderitem.split(",")[4])!=float(orderitem.split(",")[3])*float(orderitem.split(",")[5])):
+        print(orderitem)
