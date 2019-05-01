@@ -1,0 +1,19 @@
+# Question:Get all those order details from orders where there are no corresponding order items
+# Order items fields order item id,order item order id,order item product id,order item quantity,order item subtotal,order item product price.
+# Order fields : order id,ordered date,order customer id, order status.
+
+def readData(path):
+    readFile=open(path)
+    fileToStr=readFile.read()
+    strToLis=fileToStr.splitlines()
+    return strToLis
+orders=readData("C:/Users/Ramesh/Desktop/retail_db-master/orders/part-00000")
+
+orderItems=readData("C:/Users/Ramesh/Desktop/retail_db-master/order_items/part-00000")
+
+AllOiFromOir=[]
+for orderItem in orderItems:
+    AllOiFromOir.append(orderItem.split(",")[1])
+for order in orders:    
+    if order.split(",")[0] not in AllOiFromOir:
+        print(order)
