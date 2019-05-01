@@ -11,9 +11,9 @@ orders=readData("C:/Users/Ramesh/Desktop/retail_db-master/orders/part-00000")
 
 orderItems=readData("C:/Users/Ramesh/Desktop/retail_db-master/order_items/part-00000")
 
-AllOiFromOir=[]
+AllOiFromOir=set()
 for orderItem in orderItems:
-    AllOiFromOir.append(orderItem.split(",")[1])
+    AllOiFromOir.add(orderItem.split(",")[1])
 for order in orders:    
     if order.split(",")[0] not in AllOiFromOir:
         print(order)
